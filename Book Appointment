@@ -14,7 +14,7 @@ def book_appointment():
             break
 
         else:
-            print("ERROR! Please reenter valid department.")
+            print("ERROR! Please re-enter valid department.")
 
     # Input appointment date
     while True:
@@ -24,16 +24,14 @@ def book_appointment():
             if days >= 7:
                 break
             else:
-                print("ERROR! Please reenter valid appointment date.")
+                print("ERROR! Please re-enter valid appointment date.")
 
         except ValueError:
             print("ERROR! Please enter a valid number.")
 
     # Booking confirmation
     while True:
-        confirmation = input(
-            "Would you like to confirm your booking? (yes/no): "
-        ).strip().lower()
+        confirmation = input("Would you like to confirm your booking? (yes/no): ").strip().lower()
 
         if confirmation == "yes":
             print("\nThank you for booking at CareBridge Hospital!")
