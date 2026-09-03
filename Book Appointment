@@ -21,7 +21,7 @@ def book_appointment():
         try:
             days = int(input("Enter number of days from today for appointment: "))
 
-            if 0 <= days <= 7:
+            if days >= 7:
                 break
             else:
                 print("ERROR! Please reenter valid appointment date.")
