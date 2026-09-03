@@ -1,0 +1,47 @@
+def book_appointment():
+    print("\n--- Book Appointment ---")
+
+    # Input department
+    while True:
+        department = input("Enter department (GP/Specialist): ").strip().lower()
+
+        if department == "gp":
+            print("Department: GP selected")
+            break
+
+        elif department == "specialist":
+            print("Department: Specialist selected")
+            break
+
+        else:
+            print("ERROR! Please reenter valid department.")
+
+    # Input appointment date
+    while True:
+        try:
+            days = int(input("Enter number of days from today for appointment: "))
+
+            if 0 <= days <= 7:
+                break
+            else:
+                print("ERROR! Please reenter valid appointment date.")
+
+        except ValueError:
+            print("ERROR! Please enter a valid number.")
+
+    # Booking confirmation
+    while True:
+        confirmation = input(
+            "Would you like to confirm your booking? (yes/no): "
+        ).strip().lower()
+
+        if confirmation == "yes":
+            print("\nThank you for booking at CareBridge Hospital!")
+            return True
+
+        elif confirmation == "no":
+            print("Booking cancelled.")
+            return False
+
+        else:
+            print("Please enter yes or no.")
