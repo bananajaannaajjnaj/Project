@@ -1,0 +1,49 @@
+def calculate_bill():
+    print("\n--- Calculate Bill ---")
+
+    # Input patient type
+    while True:
+        patient_type = input(
+            "Enter patient type (Subsidised/Private): "
+        ).strip().lower()
+
+        if patient_type in ["subsidised", "private"]:
+            break
+        else:
+            print("ERROR! Please enter valid patient type.")
+
+    # Input number of lab tests
+    while True:
+        try:
+            lab_tests = int(input("Enter number of lab tests: "))
+
+            if lab_tests >= 0:
+                break
+            else:
+                print("ERROR! Please enter a valid number of lab tests.")
+
+        except ValueError:
+            print("ERROR! Please enter a whole number.")
+
+    # Set fees
+    consultation_fee = 100
+    lab_test_rate = 10
+
+    # Calculate subtotal
+    subtotal = consultation_fee + (lab_tests * lab_test_rate)
+
+    # Calculate total
+    if patient_type == "subsidised":
+        total = subtotal * 0.70
+    else:
+        total = subtotal
+
+    # Display bill
+    print("\n--- Bill Summary ---")
+    print("Patient Type:", patient_type.capitalize())
+    print("Consultation Fee: $", consultation_fee)
+    print("Lab Tests:", lab_tests)
+    print("Subtotal: $", subtotal)
+    print("Total Amount to Pay: $", round(total, 2))
+
+    return total
